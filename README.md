@@ -1,7 +1,7 @@
 # Cloud Infrastructure AWS  
 
 ## Introduction  
----
+
 This project main goal is to create an automated way to get a full webserver running in just one command. The application uses Amazon Web Services to host all the dependencies and avail some of the features provided by AWS to make a more secure and stable webserver. The framework utilized for developing the application is a Flask backend with the possibility of making simple requests and the database is stored in a MongoDB server. This project prioritizes more the infrastructure of a stable, reliable and scalable server than a complex web application. The development of the project rely on the library boto of AWS to translate all the code to AWS commands.
 
 ## Model
