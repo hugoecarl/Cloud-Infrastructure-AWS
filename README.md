@@ -1,6 +1,34 @@
-# Infra Cloud 
+# Cloud Infrastructure AWS  
 
-O projeto cria automaticamente a estrutura de cloud com a aplicação em um webserver flask e os dados guardados em um server mongo-db, hospeda as aplicações em duas regiões, North Virginia que consiste no servidor web e o database mongo e Ohio que contém o simple redirection (Pass_On), o auto scaling group e o load balancer. Para subir a nuvem basta rodar o arquivo runme.py e caso algum problema na criação aconteça é só rodar novamente que tudo será apagado e os recursos serão alocados do 0.
+## Introduction  
+---
+This project main goal is to create an automated way to get a full webserver running in just one command. The application uses Amazon Web Services to host all the dependencies and avail some of the features provided by AWS to make a more secure and stable webserver. The framework utilized for developing the application is a Flask backend with the possibility of making simple requests and the database is stored in a MongoDB server. This project prioritizes more the infrastructure of a stable, reliable and scalable server than a complex web application. The development of the project rely on the library boto of aws to translate all the code to AWS commands.
 
-A aplicação foi construida e utiliza de outro repositório git, apesar de todos os arquivos presentes nela estarem neste repositório também.
-https://github.com/hugoecarl/PF_Cloud
+## Model
+---
+
+![Screenshot](screenshot.PNG)  
+
+This model shows the topology of the project and it is important to highlight that the Flask webserver and the database server are hosted in instances (EC2) of aws in Ohio and the Pass-On, Auto Scaling and Load Balancer server are hosted in instances in North Virginia following good pratices of security. The Pass-On server just redirects for the webserver while the Auto Scaling group creates new instances following the demand of the application and the Load Balancer conduct the user for instances that are less overloaded.
+
+## How To Use  
+---
+Install the dependencies:  
+
+```  
+$ pip3 install boto3  
+$ pip3 install awscli --upgrade --user  
+```  
+Configure AWS Credentials:  
+```
+$ aws configure
+```
+Run:  
+```
+$ python app.py  
+```
+
+## Notes  
+---
+To fully work you will need to change some of credential infos in code like keys and ips.  
+This project work with other github repository in order to install the scripts that are necessary for the instance: https://github.com/hugoecarl/PF_Cloud  
